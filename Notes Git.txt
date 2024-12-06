@@ -1,0 +1,7 @@
+Git
+
+a => added -> Ditambahkan
+u => untracked -> Belum Di daftarkan
+m => Modified -> Sudah ditambahkan tapi di edit dan belum di simpan ke repository github
+
+git commit -m "day 3" => checkpoint

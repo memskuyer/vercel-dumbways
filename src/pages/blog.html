@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/navbar.css" />
+    <link rel="stylesheet" href="../style/blog.css" />
+    <title>Blog</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="../../index.html">
+          <img
+            class="nav-logo"
+            src="../assets/images/image.png"
+            alt="logo-navbar" />
+        </a>
+        <ul class="nav-ul">
+          <li>
+            <a href="../../index.html" class="link">Home</a>
+          </li>
+          <li>
+            <a href="./blog.html" class="link-active">Blog</a>
+          </li>
+          <li>
+            <a href="./task/MyProject.html#my-project" class="link"
+              >My Project</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="nav-right">
+        <a href="./contact.html">Contact Me</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="section-form">
+        <form onsubmit="addBlog(event)" id="form-input">
+          <h1 class="section-title">Create a blog</h1>
+          <div class="form-fields">
+            <label for="input-blog-title">Title</label>
+            <input
+              type="text"
+              id="input-blog-title"
+              name="input-blog-title"
+              class="form-input"
+              placeholder="title" />
+          </div>
+
+          <div class="form-fields">
+            <label for="input-blog-content">Content</label>
+            <textarea
+              id="input-blog-content"
+              name="input-blog-content"
+              rows="8"
+              class="form-input"
+              placeholder="content"></textarea>
+          </div>
+
+          <div class="form-fields">
+            <label for="input-images">Upload Images</label>
+            <div class="input-image-group">
+              <label for="input-blog-images" class="input-label">
+                <p>Attach File</p>
+                <img src="../assets/images/attach.png" alt="" />
+              </label>
+              <input
+                type="file"
+                id="input-blog-images"
+                name="input-blog-images"
+                class="form-input"
+                placeholder="images"
+                hidden />
+            </div>
+          </div>
+          <div class="button-group">
+            <button type="submit" class="button-blog">Post Blog</button>
+          </div>
+        </form>
+      </section>
+      <hr />
+      <section class="blog-container">
+        <div class="blog-list" id="blogList">
+          <div class="blog-list-item">
+            <div class="blog-image">
+              <img src="../assets/images/image.png" alt="Images" />
+            </div>
+            <div class="blog-content">
+              <div class="btn-group">
+                <button class="btn-edit">Edit Post</button>
+                <button class="btn-post">Post Blog</button>
+              </div>
+              <h1>
+                <a href="./blog-detail.html" class="blog-item-title">
+                  Kucing imut di indonesia sangat gemesh
+                </a>
+              </h1>
+              <div class="detail-blog-content">
+                05 Desember 2024 10:30 | Kocheng Oren
+              </div>
+              <p class="blog-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Veritatis sequi minima quaerat hic necessitatibus eligendi
+                praesentium exercitationem quisquam qui maiores incidunt, a nam
+                laborum dolorem nobis consequuntur omnis eveniet excepturi
+                explicabo architecto reprehenderit tempore voluptatibus aliquid.
+                Sint nam distinctio dolore minima, unde inventore non ipsam
+                ullam pariatur reiciendis temporibus quia tenetur placeat
+                dolores velit debitis itaque! Veniam neque dolores qui magnam,
+                accusamus deserunt numquam expedita nisi accusantium obcaecati
+                maxime atque nobis necessitatibus beatae quod ipsum soluta
+                molestias labore nihil corporis adipisci cupiditate sint quidem!
+                Nam placeat quae ducimus, natus nulla odio temporibus nesciunt
+                porro facilis enim perspiciatis consequatur iure repellendus.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="../js/blog-post.js"></script>
+  </body>
+</html>

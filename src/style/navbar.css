@@ -1,0 +1,45 @@
+/* navbar  */
+.navbar {
+  padding: 5px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(58, 227, 227);
+}
+.nav-logo {
+  width: 50px;
+}
+
+.nav-ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.navbar a {
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.nav-left {
+  display: flex;
+}
+
+.nav-right {
+  background-color: aquamarine;
+  padding: 4px 16px;
+  border-radius: 10px;
+}
+.nav-right a {
+  color: black;
+}
+
+.link-active {
+  color: rgb(255, 68, 0);
+  font-weight: bold;
+}
+
+.link {
+  color: black;
+}
+/* end navbar  */
