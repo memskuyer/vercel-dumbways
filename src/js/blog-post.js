@@ -18,25 +18,40 @@ const addBlog = (e) => {
   let imagesInput = URL.createObjectURL(images.files[0]);
   let d = new Date();
   const date = new Intl.DateTimeFormat(["ban", "id"]).format(d);
+
   let blog = {
     author: "Kocheng Oren",
     title: title,
     images: imagesInput,
     content: content,
-    postedAt: date,
+    postedAt: new Date(),
   };
 
   blogs.push(blog);
   renderBlogs();
 };
 
+const realTime = (index) => {
+  let angka = 0;
+  let spanId = document.getElementById(`realTime-${index}`);
+  setInterval(() => {
+    angka++;
+    spanId.textContent =
+      angka < 60
+        ? angka + " Seconds Ago"
+        : angka >= 60
+        ? parseInt(angka / 60) + " Minutes Ago"
+        : "";
+  }, 1000);
+};
 const renderBlogs = () => {
-  console.log(blogs);
   let blogListing = document.getElementById("blogList");
   blogListing.innerHTML = firstBlogContent();
 
   for (let i = 0; i < blogs.length; i++) {
-    console.log(blogs[i]);
+    console.log("i", i);
+
+    let dateFormat = formatDate(blogs[i].postedAt);
     blogListing.innerHTML += `
      <div id="${i}" class="blog-list-item">
             <div class="blog-image">
@@ -53,14 +68,18 @@ const renderBlogs = () => {
                 </a>
               </h1>
               <div class="detail-blog-content">
-                ${blogs[i].postedAt} || Kocheng Oren
+                ${dateFormat} || Kocheng Oren
               </div>
               <p class="blog-text">
                 ${blogs[i].content}
               </p>
+              <p style="text-align: right"><span id="realTime-${i + 1}">${
+      "0" ? getRelativeTime(blogs[i].postedAt) : ""
+    }</span></p>
             </div>
           </div>
     `;
+    realTime(i + 1);
   }
 };
 
@@ -98,12 +117,13 @@ const firstBlogContent = () => {
                 Nam placeat quae ducimus, natus nulla odio temporibus nesciunt
                 porro facilis enim perspiciatis consequatur iure repellendus.
               </p>
+              <p style="text-align: right"><span id="realTime-0">0</span></p>
             </div>
           </div>
     `;
 };
 
-const formatDate = () => {
+const formatDate = (date) => {
   const months = [
     "Jan",
     "Feb",
@@ -118,11 +138,27 @@ const formatDate = () => {
     "Nov",
     "Dec",
   ];
+
+  let day = date.getDate().toString().padStart(2, "0");
+  let month = months[date.getMonth()];
+  let year = date.getFullYear();
+
+  // let second = date.getSecond().toString();
+  let minutes = date.getMinutes().toString().padStart(2, "0");
+  let hours = date.getHours().toString().padStart(2, "0");
+
+  let formattedDate = `${day} ${month} ${year} ${hours}:${minutes} WIB`;
+  return formattedDate;
 };
 
 const getRelativeTime = (targetDate) => {
   let now = new Date();
   let diffInSeconds = Math.floor((now - targetDate) / 1000);
+  let diffInMinutes = Math.floor(diffInSeconds / 60);
 
-  console.log(diffInSeconds);
+  if (diffInSeconds < 60) {
+    return `${diffInSeconds} Seconds Ago`;
+  } else if (diffInMinutes < 60) {
+    return `${diffInMinutes} Minutes Ago`;
+  }
 };

@@ -42,7 +42,8 @@ const submitForm = (e) => {
   // let images = URL.createObjectURL(imageUpload.files[0]);
 
   let res = {
-    author: name,
+    author: "Papoy",
+    name: name,
     startDate: startDate,
     endDate: endDate,
     description: description,
@@ -75,9 +76,17 @@ const getStorage = () => {
     // console.log(duration);
     projectList.innerHTML += `
         <div id=${i} class="card">
-        <img src="../../assets/images/${lcProject[i].images}" alt="" class="img-hero" />
-        <h2>${lcProject[i].author}</h2>
-        <p>Durasi: ${duration} Bulan | Papoy </p>
+        <img src="../../assets/images/${
+          lcProject[i].images
+        }" alt="" class="img-hero" />
+        <h2>
+        <a href="./project-detail.html?id=${i}" style="text-decoration:none; color:black">
+        ${lcProject[i].name}
+        </a>
+        </h2>
+        <p>Durasi: ${duration == 0 ? -1 : duration} Bulan | ${
+      lcProject[i].author
+    } </p>
         <p>
         ${lcProject[i].description}
         </p>
