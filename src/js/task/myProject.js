@@ -50,7 +50,16 @@ const submitForm = (e) => {
   };
   arr.push(res);
   localStorage.setItem("project", JSON.stringify(arr));
-  alert("Berhasil");
+  Swal.fire({
+    position: "top-end",
+    icon: "success",
+    title: "Berhasil Menambahkan project baru, Please wait to refresh Page",
+    showConfirmButton: false,
+    timer: 1500,
+  });
+  setTimeout(() => {
+    location.reload();
+  }, 1600);
 };
 
 const getStorage = () => {
@@ -101,9 +110,25 @@ const getStorage = () => {
 getStorage();
 
 function funcEdit() {
-  alert("HEeheheheehee Belum Berfungsi");
+  Swal.fire({
+    title: "Fungsi Edit sedang dalam experiment",
+    text: "Mohon bersabar.",
+    imageUrl:
+      "https://static4.depositphotos.com/1000899/288/i/450/depositphotos_2887376-stock-photo-mechanical-engineer.jpg",
+    imageWidth: 400,
+    imageHeight: 200,
+    imageAlt: "Custom image",
+  });
 }
 
 function funcDelete(id) {
-  alert("HEeheheheehee Belum Berfungsi Juga");
+  Swal.fire({
+    title: "Function Delete sedang dalam experiment",
+    text: "Mohon bersabar.",
+    imageUrl:
+      "https://static4.depositphotos.com/1000899/288/i/450/depositphotos_2887376-stock-photo-mechanical-engineer.jpg",
+    imageWidth: 400,
+    imageHeight: 200,
+    imageAlt: "Custom image",
+  });
 }
