@@ -89,7 +89,7 @@ const getStorage = () => {
         </p>
           <p>${checkboxArr}</p>
         <div class="btn-section-two">
-        <button class="btn-edit">edit</button>
+        <button onclick="funcEdit()" class="btn-edit">edit</button>
         <button onclick="funcDelete(${i})" class="btn-delete">delete</button>
         </div>
         </div>
@@ -100,6 +100,10 @@ const getStorage = () => {
 
 getStorage();
 
+function funcEdit() {
+  alert("HEeheheheehee Belum Berfungsi");
+}
+
 function funcDelete(id) {
-  let lcStorage = JSON.parse(localStorage.getItem("project"));
+  alert("HEeheheheehee Belum Berfungsi Juga");
 }
