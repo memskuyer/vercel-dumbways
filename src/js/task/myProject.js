@@ -39,8 +39,6 @@ const submitForm = (e) => {
     return alert("Images input Tidak Boleh Kosong");
   }
 
-  // let images = URL.createObjectURL(imageUpload.files[0]);
-
   let res = {
     author: "Papoy",
     name: name,
@@ -59,7 +57,6 @@ const getStorage = () => {
   let projectList = document.getElementById("listProject");
 
   for (let i = 0; i < lcProject.length; i++) {
-    // console.log(lcProject[i].checBox);
     let checkboxArr = [];
     lcProject[i].checBox.forEach((b) => {
       checkboxArr.push(b);
@@ -80,7 +77,7 @@ const getStorage = () => {
           lcProject[i].images
         }" alt="" class="img-hero" />
         <h2>
-        <a href="./project-detail.html?id=${i}" style="text-decoration:none; color:black">
+        <a href="./project-detail.html?id=${i}&duration=${duration}" style="text-decoration:none; color:black">
         ${lcProject[i].name}
         </a>
         </h2>
@@ -93,7 +90,7 @@ const getStorage = () => {
           <p>${checkboxArr}</p>
         <div class="btn-section-two">
         <button class="btn-edit">edit</button>
-        <button class="btn-delete">delete</button>
+        <button onclick="funcDelete(${i})" class="btn-delete">delete</button>
         </div>
         </div>
         </div>
@@ -102,3 +99,7 @@ const getStorage = () => {
 };
 
 getStorage();
+
+function funcDelete(id) {
+  let lcStorage = JSON.parse(localStorage.getItem("project"));
+}
